@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Recuperar senha - {APP_TITLE}</title>
+    
+    <link href="{ROOT_URL}/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="{ROOT_URL}/css/jform/jform.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="{ROOT_URL}/js/default.js"></script> 
+	<script type="text/javascript" src="{ROOT_URL}/js/analytcs.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jquery.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jquery-maskedinput.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jform.js"></script>  
+    <script type="text/javascript">
+		var RecaptchaOptions = {
+			theme: 'custom',
+			custom_theme_widget: 'recaptcha_widget'
+		};
+		
+		$(document).ready(function()
+		{
+			$('#birth_date').mask('99/99/9999');
+		});
+    </script>
+    <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6LfLD-QSAAAAABKEao_sY3KBYgnP9J34YZTGl9pY"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+	<div class="app-header"><!-- include:app-header --></div>
+    <div class="app-nav"><!-- include:app-nav --></div>
+    
+    <div class="app-content">
+   		<div class="container-fluid">
+        	<div class="nav-path"><a href="{ROOT_URL}">Início</a> <a href="{ROOT_URL}/entrar">Entrar</a> Recuperar senha</div>
+        	<h2>Recuperar senha</h2>
+            
+            {errors}{messages}
+            <!-- bb_form -->
+            <form name="jform" action="{ROOT_URL}/perfil/recuperar" method="post" class="jform" id="jform" autocomplete="off">
+
+                 <div class="jform-box-medium">
+                    <label for="email">E-mail utilizado no cadastro</label>
+                    <input type="text" id="email" name="email" value="{email}" maxlength="254" /> 
+                </div>               
+                <div class="jform-box-clear">
+                    <label for="birth_date">Data de nascimento (dd/mm/aaaa)</label>
+                    <input type="text" id="birth_date" name="birth_date" value="{birth_date}" maxlength="10" />
+                </div>
+            
+                <div class="jform-box-large"><input type="submit" name="submit" value="Enviar" title="Enviar" /> {token}</div>
+                
+            </form>
+            <!-- eb_form -->
+            <!-- bb_complete -->
+            <p>Uma nova senha foi gerada e enviada para o endereço de e-mail informado.</p>
+            <!-- eb_complete -->
+        </div>
+        <div class="clear"></div>	 
+    </div>
+    
+    <div class="app-footer"><!-- include:app-footer --></div>
+</div>
+
+</body>
+</html>

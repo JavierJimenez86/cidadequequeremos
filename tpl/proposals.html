@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ideias - {APP_TITLE}</title>
+    
+    <link href="{ROOT_URL}/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{ROOT_URL}/css/proposal.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="{ROOT_URL}/js/analytcs.js"></script>  
+</head>
+
+<body>
+
+<div class="app-container">
+	<div class="app-header"><!-- include:app-header --></div>
+    <div class="app-nav"><!-- include:app-nav --></div>
+    
+    <div class="app-content">
+   		<div class="container-fluid">
+        	<div class="nav-path"><a href="{ROOT_URL}">Início</a> Ideias</div>
+        	<h2>Ideias {selected_label} <a href="{ROOT_URL}/ideias/submissao" class="btn-proposal-submit">Envie sua ideia</a></h2>
+			
+            <!--<div>O fomulário para submissão de propostas estará disponível entre os dias 06 e 26 de outubro.</div>-->
+            
+            <div class="proposal-tab">
+          		<a href="{ROOT_URL}/ideias/" class="{css_all}">Todas as ideias ({total_count})</a>
+                <!-- bb_topic --><a href="{ROOT_URL}/ideias/{url}" class="{css}" title="Ideias em {topic}">{topic}  ({proposal_count})</a><!-- eb_topic --> 
+            </div>
+            
+            <!--
+            	 bb_topic 
+           		<a href="{ROOT_URL}/ideias/{url}" class="{css}"><img src="{ROOT_URL}/css/ico-{url}.png" height="50" /> {topic} ({proposal_count})</a>
+                 eb_topic 
+            -->
+            
+            <table border="0" cellpadding="14" cellspacing="0" class="table-proposal proposal-public">
+              <tr>
+                <th scope="col" width="85%">Título</th>
+                <th scope="col" width="15%">Comentários</th>
+              </tr>
+              <!-- bb_list -->
+              <tr>
+                <td><a href="{ROOT_URL}/ideias/{proposal_id}" title="Ver proposta">{title}</a></td>
+                <td><a href="{ROOT_URL}/ideias/{proposal_id}#comments" title="Ver comentários" class="proposal-ico-comment">{comment_count}</a></td>
+              </tr>
+              <!-- eb_list -->
+            </table>
+
+        </div>
+        <div class="clear"></div>		 
+    </div>
+
+    <div class="app-footer"><!-- include:app-footer --></div>
+</div>
+
+</body>
+</html>

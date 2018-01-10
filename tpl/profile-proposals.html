@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Minhas ideias - {APP_TITLE}</title>
+    
+    <link href="{ROOT_URL}/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{ROOT_URL}/css/proposal.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="{ROOT_URL}/js/analytcs.js"></script>  
+</head>
+
+<body>
+
+<div class="app-container">
+	<div class="app-header"><!-- include:app-header --></div>
+    <div class="app-nav"><!-- include:app-nav --></div>
+    
+    <div class="app-content">
+   		<div class="container-fluid">
+        	<div class="nav-path"><a href="{ROOT_URL}">Início</a> Minhas ideias</div>
+        	<h2>Minhas ideias <a href="{ROOT_URL}/ideias/submissao" class="btn-proposal-submit">Enviar ideia</a></h2>
+
+            <table border="0" cellpadding="14" cellspacing="0" class="table-proposal">
+              <tr>
+              	<th scope="col" width="20%">Tema</th>
+                <th scope="col" width="50%">Título</th>
+                <th scope="col" width="10%">Data envio</th>
+                <th scope="col" width="10%">Situação</th>
+                <th scope="col" width="10%">Editar</th>
+              </tr>
+              <!-- bb_list -->
+              <tr>
+                <td>{topic}</td>
+                <td>{title}</td>
+                <td>{submit_date:datetime}</td>
+                <td>{status}</td>
+                <td><a href="{ROOT_URL}/perfil/ideias/{proposal_id}">Editar</a></td>
+              </tr>
+              <!-- eb_list -->
+            </table>
+
+        </div>
+        <div class="clear"></div>		 
+    </div>
+
+    <div class="app-footer"><!-- include:app-footer --></div>
+</div>
+
+</body>
+</html>

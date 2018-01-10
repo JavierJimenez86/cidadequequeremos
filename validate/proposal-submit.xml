@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<validation>
+
+	<field name="title" label="Título" required="true" />
+	<field name="topic_id" label="Tema" required="true" />
+	<field name="authors" label="Autores" required="true" />
+	<field name="abstract" label="Resumo" required="true" />
+	<field name="description" label="Descrição" required="true" />
+	<field name="benefit" label="Benefícios" required="true" />
+	<field name="executor" label="Responsáveis pela execução" required="true" />
+	<field name="audience" label="Público alvo" required="true" />
+	
+	<file name="picture_1" label="Imagem 1" type="image" />
+	<file name="picture_2" label="Imagem 2" type="image" />
+	<file name="picture_3" label="Imagem 3" type="image" />
+
+</validation>

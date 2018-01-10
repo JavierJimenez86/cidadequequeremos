@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Entrar - {APP_TITLE}</title>
+    
+	<meta property="og:title" content="Entrar - Cidade que queremos - Colorado do Oeste"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://www.ifrocolorado.com.br/cidadequequeremos/entrar"/>
+    <meta property="og:image" content="http://www.ifrocolorado.com.br/cidadequequeremos/css/cidade-que-queremos-large.png"/>
+	<meta property="og:description" content="Entrar"/>
+    
+    <link href="{ROOT_URL}/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="{ROOT_URL}/css/jform/jform.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="{ROOT_URL}/js/analytcs.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jquery.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jcrop.js"></script>
+    <script type="text/javascript" src="{ROOT_URL}/js/jform.js"></script>  
+    <script type="text/javascript">
+		var RecaptchaOptions = {
+			theme: 'custom',
+			custom_theme_widget: 'recaptcha_widget'
+		};
+    </script>
+</head>
+
+<body>
+
+<div class="app-container">
+	<div class="app-header"><!-- include:app-header --></div>
+    <div class="app-nav"><!-- include:app-nav --></div>
+    
+    <div class="app-content">
+   		<div class="container-fluid">
+        	<div class="nav-path"><a href="{ROOT_URL}">Início</a> Entrar</div>
+        	<h2>Entrar</h2>
+            
+            <div class="clear">{errors}{messages}</div>
+            
+            <form name="jform" action="{ROOT_URL}/entrar/{redirect}" method="post" class="jform" id="jform">
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="text" id="email" name="email" maxlength="254" /> 
+                </div>
+                <div class="jform-box-clear">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" maxlength="13" size="21" title="De 6 a 13 caracteres" />
+                </div>
+                <!--<div class="jform-box-large">
+                    <label><input type="checkbox" name="stay_connected" value="1" />Mantenha-me conectado</label> 
+                </div>-->
+            
+                <div class="jform-box-large"><input type="submit" name="submit" value="Entrar" title="Entrar" /> {token}</div>
+                <div class="jform-box-large">
+                    <p><a href="{ROOT_URL}/cadastro">Não possuo cadastro</a></p>
+                    <p><a href="{ROOT_URL}/perfil/recuperar">Esqueci a senha</a></p>
+                </div>
+            </form>
+            
+            <!--<div class="login-box-form">
+                <form name="jform" action="{ROOT_URL}/entrar" method="post" class="jform" id="jform">
+    
+                    <div class="jform-box-large">
+                        <label for="email">E-mail</label>
+                        <input type="text" id="email" name="email" maxlength="254" /> 
+                    </div>
+                    <div class="jform-box-large jform-box-clear">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" maxlength="13" size="21" title="De 6 a 13 caracteres" />
+                    </div>
+                
+                    <div class="jform-box-large"><input type="submit" name="submit" value="Entrar" title="Entrar" /> {token}</div>
+                    <p><a href="{ROOT_URL}/cadastro">Quero me cadastrar</a></p>
+                    <p><a href="#">Esqueci a senha</a></p>
+                </form>
+            </div>
+            <div class="login-box-social">
+            	<a href="{facebook_login_url}" class="btn-social-login btn-login-facebook">Entre com sua conta do Facebook</a>
+            	<a href="{google_login_url}" class="btn-social-login btn-login-google">Entre com sua conta do Google</a>
+                <span>OU</span>
+			</div>-->
+        </div>
+        <div class="clear"></div>	 
+    </div>
+    
+    <div class="app-footer"><!-- include:app-footer --></div>
+</div>
+
+</body>
+</html>

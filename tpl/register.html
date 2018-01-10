@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Cadastro - {APP_TITLE}</title>
+    
+    <link href="{ROOT_URL}/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="{ROOT_URL}/css/jform/jform.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="{ROOT_URL}/js/default.js"></script> 
+	<script type="text/javascript" src="{ROOT_URL}/js/analytcs.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jquery.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jquery-maskedinput.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jform.js"></script>  
+    <script type="text/javascript">
+		var RecaptchaOptions = {
+			theme: 'custom',
+			custom_theme_widget: 'recaptcha_widget'
+		};
+		
+		$(document).ready(function()
+		{
+			$('#birth_date').mask('99/99/9999');
+			
+			$('#state_id').change(function()
+			{
+				$('#city_id').selectLoad({
+					url: ROOT_URL + '/json/json-city.php',
+					data: { state_id: $(this).val() },
+					key: 'city_id',
+					label: 'city',
+					empty: 'Selecione um Estado'
+				});	
+			});
+		});
+    </script>
+    <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6LfLD-QSAAAAABKEao_sY3KBYgnP9J34YZTGl9pY"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+	<div class="app-header"><!-- include:app-header --></div>
+    <div class="app-nav"><!-- include:app-nav --></div>
+    
+    <div class="app-content">
+   		<div class="container-fluid">
+        	<div class="nav-path"><a href="{ROOT_URL}">Início</a> Cadastro</div>
+        	<h2>Cadastro</h2>
+            
+            {errors}{messages}
+            
+            <form name="jform" action="{ROOT_URL}/cadastro/{redirect}" method="post" class="jform" id="jform" autocomplete="off">
+
+                <div class="jform-box-medium">
+                    <label for="name">Nome (completo e sem abreviações)</label>
+                    <input type="text" id="name" name="name" value="{name}" maxlength="254" /> 
+                </div>
+                 <div class="jform-box-medium">
+                    <label for="email">E-mail (será seu usuário)</label>
+                    <input type="text" id="email" name="email" value="{email}" maxlength="254" /> 
+                </div>               
+                <div class="jform-box-clear">
+                    <label for="birth_date">Data de nascimento (dd/mm/aaaa)</label>
+                    <input type="text" id="birth_date" name="birth_date" value="{birth_date}" maxlength="10" />
+                </div>
+                <div>
+                    <label for="genre">Sexo</label>
+                    {rl_genre}
+                </div>
+                <div class="jform-box-clear">
+                    <label for="state_id">Estado</label>
+                    <select name="state_id" id="state_id">{sl_state_id}</select>
+                </div>
+                <div>
+                    <label for="city_id">Cidade</label>
+                    <select name="city_id" id="city_id">{sl_city_id}</select>
+                </div>
+                <div class="jform-box-clear">
+                    <label for="password">Senha (de 7 a 13 caraceteres)</label>
+                    <input type="password" id="password" name="password" value="{password}" maxlength="13" size="21" title="De 6 a 13 caracteres" />
+                </div>
+                <div>
+                    <label for="password_retry">Repita a senha</label>
+                    <input type="password" id="password_retry" name="password_retry" value="{password}"  maxlength="13" size="21" />
+                </div>
+
+                <div class="jform-box-large jform-checkboxlist">
+                	<label><input type="checkbox" name="is_notification_enabled" value="1" {is_notification_enabled} />Desejo receber notificações de comentários em minhas propostas</label>  
+                    <label><input type="checkbox" name="terms" value="1" {terms} />Concordo com os <a href="{ROOT_URL}/termos" target="_blank">termos de uso</a></label>   
+                </div>
+
+                <div class="recaptcha-response-field jform-box-large">
+                    <div id="recaptcha_widget">
+                        <div id="recaptcha_image"></div>
+                        <noscript>
+                            <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LfLD-QSAAAAABKEao_sY3KBYgnP9J34YZTGl9pY" height="300" width="500" frameborder="0"></iframe><br />
+                            <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+                            <input type="hidden" name="recaptcha_response_field" value="manual_challenge" />
+                        </noscript>
+                    </div>
+                
+                    <label for="recaptcha_response_field">Informe os caracteres da imagem</label>
+                    <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" title="Informe os caracteres da imagem" />
+                    <a href="javascript:Recaptcha.reload()" class="btn-recaptcha-reload" title="Obter um novo desafio">Novo desafio</a>
+                    <a href="javascript:Recaptcha.switch_type(&#39;audio&#39;)" class="btn-recaptcha-audio" title="Obter um desafio de áudio">Desafio de áudio</a>
+                    <a href="javascript:Recaptcha.showhelp()" class="btn-recaptcha-help" title="Ajuda">Ajuda</a>
+                </div>
+            
+                <div class="jform-box-large"><input type="submit" name="submit" value="Efetuar cadastro" title="Enviar" /> {token}</div>
+                
+            </form>
+            
+        </div>
+        <div class="clear"></div>	 
+    </div>
+    
+    <div class="app-footer"><!-- include:app-footer --></div>
+</div>
+
+</body>
+</html>

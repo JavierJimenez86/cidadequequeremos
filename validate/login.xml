@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<validation>
+
+	<field name="email" label="E-mail" required="true" type="email" />
+	<field name="password" label="Senha" required="true" />
+	
+</validation>

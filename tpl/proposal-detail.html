@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{title} - {APP_TITLE}</title>
+    
+	<meta property="og:title" content="Cidade que queremos - Colorado do Oeste" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://www.ifrocolorado.com.br/cidadequequeremos/ideias/{proposal_id}" />
+    <meta property="og:image" content="http://www.ifrocolorado.com.br/cidadequequeremos/css/cidade-que-queremos-large.png" />
+	<meta property="og:description" content="{title}" />
+    
+    <meta property="fb:admins" content="100002187010105" />
+    <meta property="fb:app_id" content="168751066534331" />
+    
+    <link href="{ROOT_URL}/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{ROOT_URL}/css/proposal.css" rel="stylesheet" type="text/css" />
+    <link href="{ROOT_URL}/css/jform/jform.css" rel="stylesheet" type="text/css" />
+    
+	<script type="text/javascript" src="{ROOT_URL}/js/default.js"></script> 
+	<script type="text/javascript" src="{ROOT_URL}/js/analytcs.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jquery.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jform.js"></script>
+    
+    <script src="http://connect.facebook.net/pt_BR/all.js#xfbml=1&appId=168751066534331"></script>  
+    <script type="text/javascript">
+		var hasErrors = {has_errors};
+		var commentId = {comment_id};
+	</script> 
+	<script type="text/javascript" src="{ROOT_URL}/js/proposal.js"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+	<div class="app-header"><!-- include:app-header --></div>
+    <div class="app-nav"><!-- include:app-nav --></div>
+    
+    <div class="app-content">
+   		<div class="container-fluid">
+        	<div class="nav-path"><a href="{ROOT_URL}">Início</a> <a href="{ROOT_URL}/ideias">Ideiais</a> {topic}</div>
+        	<h2>{title} <em>em {topic}</em></h2>
+            
+            <div class="proposal-title" id="proposal-title"><em>{topic}:</em> {title}</div>
+            
+            <div class="proposal-nav">
+            	<div class="proposal-vote">A votação começa em <span>{days_until}</span> dias. Fique atento!</div>
+            	<div class="proposal-social">
+                	<a href="#comments" class="proposal-ico-comment">{total_comments_label}</a>
+            		<div class="fb-like" data-href="http://www.ifrocolorado.com.br/cidadequequeremos/ideias/{proposal_id}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true" data-font="arial"></div>
+           		</div>
+                <div></div>
+                <div class="proposal-help">
+                	<em>Por que não consigo ver os autores da proposta?</em>
+                    <p>Os autores não são exibidos para evitar que a votação seja influenciada. (usuários podem desconsiderar a relevância da proposta e votar pelo simples fato de conhecer os autores)</p>
+                </div>
+            </div>
+
+            <div class="proposal-detail">
+            	<h3>Resumo</h3>
+                {abstract}
+                
+            	<h3>Descrição</h3>
+                {description}
+                
+                <div class="proposal-picture">
+                	<p><strong>Imagens anexadas</strong></p>
+               		<!-- bb_picture -->
+                	<figure>
+                    	<a href="{FILES_URL}/proposal/{picture}" target="_blank" title="Ampliar imagem"><img src="{FILES_URL}/proposal/thumbnail/{picture}" width="180" /></a>
+                    	<figcaption>{legend}</figcaption>
+                    </figure>
+                    <!-- eb_picture -->
+                </div>
+                
+            	<h3>Benefícios</h3>
+                {benefit}
+                
+            	<h3>Possíveis executores</h3>
+                {executor}
+                
+            	<h3>Público alvo</h3>
+                {audience}
+                
+            	<h3>Nível de investimento</h3>
+                {investment_level}
+                
+            	<h3>Referências</h3>
+                {reference}
+                
+            </div>
+            
+            <div class="proposal-comment">
+            	<h4 id="comments">Comentários ({total_comments})</h4>
+
+                <div class="comment-list">
+                	<!-- bb_no_comments --><p>Nenhum comentário</p><!-- eb_no_comments -->
+                	<!-- bb_comment --><div id="comment-{comment_id}"><strong>{name}</strong> <em>{comment_date:datetime}</em> <p>{comment}</p></div><!-- eb_comment -->
+                </div>
+                
+                <!-- bb_comment_login -->
+                <div class="comment-login">
+                	<a href="{ROOT_URL}/entrar/ideias/{proposal_id}">Entre</a> ou <a href="{ROOT_URL}/cadastro/ideias/{proposal_id}">Cadastre-se</a> para enviar um comentário.
+                </div>
+                <!-- eb_comment_login --> 
+  			 	
+                <!-- bb_comment_form -->
+                <div class="comment-form">
+                    {errors}{messages}
+    
+                    <form name="jform" action="{ROOT_URL}/ideias/{proposal_id}#comments" method="post" class="jform" id="comment" autocomplete="off">
+        
+                        <div class="jform-box-large">
+                            <label for="comment">Seu comentário ({profile_name})</label>
+                            <textarea name="comment" id="comment">{comment}</textarea>
+                        </div>
+                        
+                        <!-- bb_recaptcha -->
+                        <div class="recaptcha-response-field jform-box-large">
+                            <div id="recaptcha_widget">
+                                <div id="recaptcha_image"></div>
+                                <noscript>
+                                    <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LfLD-QSAAAAABKEao_sY3KBYgnP9J34YZTGl9pY" height="300" width="500" frameborder="0"></iframe><br />
+                                    <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+                                    <input type="hidden" name="recaptcha_response_field" value="manual_challenge" />
+                                </noscript>
+                        	</div>
+                        
+                            <label for="recaptcha_response_field">Informe os caracteres da imagem</label>
+                            <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" title="Informe os caracteres da imagem" />
+                            <a href="javascript:Recaptcha.reload()" class="btn-recaptcha-reload" title="Obter um novo desafio">Novo desafio</a>
+                            <a href="javascript:Recaptcha.switch_type(&#39;audio&#39;)" class="btn-recaptcha-audio" title="Obter um desafio de áudio">Desafio de áudio</a>
+                            <a href="javascript:Recaptcha.showhelp()" class="btn-recaptcha-help" title="Ajuda">Ajuda</a>
+                            <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6LfLD-QSAAAAABKEao_sY3KBYgnP9J34YZTGl9pY"></script>
+                        </div>
+                        <!-- eb_recaptcha -->
+                        
+                        <div class="jform-box-large jform-box-clear" style="float: none;">
+                            <input type="submit" name="submit-comment" value="Enviar" title="Enviar" /> {token}
+                        </div>
+    
+                        Antes de enviar um comentário leia os <a href="{ROOT_URL}/termos">termos de uso</a>.
+                    </form>
+                    
+                </div>
+                <!-- eb_comment_form -->
+            </div>
+            
+        </div>
+        <div class="clear"></div>		 
+    </div>
+
+    <div class="app-footer"><!-- include:app-footer --></div>
+</div>
+
+</body>
+</html>

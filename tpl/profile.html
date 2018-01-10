@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Perfil - {APP_TITLE}</title>
+
+    <link href="{ROOT_URL}/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{ROOT_URL}/css/jform/jform.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="{ROOT_URL}/js/analytcs.js"></script> 
+    <script type="text/javascript" src="{ROOT_URL}/js/jquery.js"></script>  
+    <script type="text/javascript" src="{ROOT_URL}/js/jform.js"></script>  
+</head>
+
+<body>
+
+<div class="app-container">
+	<div class="app-header"><!-- include:app-header --></div>
+    <div class="app-nav"><!-- include:app-nav --></div>
+    
+    <div class="app-content">
+   		<div class="container-fluid">
+        	<div class="nav-path"><a href="{ROOT_URL}">Início</a> Perfil</div>
+        	<h2>Perfil</h2>
+			
+            <div class="content-tab">
+            	<ul>
+                	<li><a href="{ROOT_URL}/perfil" class="content-tab-selected">Preferências</a></li>
+                    <li><a href="{ROOT_URL}/perfil/alterar-senha">Alterar senha</a></li>
+                </ul>
+            </div>	
+            <div class="content-panel">
+            
+                {errors}{messages}
+                
+                <form name="jform" action="{ROOT_URL}/perfil" method="post" class="jform" id="jform">
+                  
+                  	<!--<div>
+                    	<a href="#" class="jform-profile-picture"><img src="{picture}" width="111" /><span>Alterar foto</span></a>
+                    </div>-->
+                  
+                    <div class="jform-box-large jform-checkboxlist">
+                        <label><input type="checkbox" name="is_notification_enabled" value="1" {is_notification_enabled} />Desejo receber notificações de comentários em minhas propostas</label>  
+                    </div>
+                
+                    <div class="jform-box-large"><input type="submit" name="submit" value="Salvar alterações" title="Salvar alterações" /> {token}</div>
+                    
+                </form>
+            
+            </div>
+            
+        </div>
+        <div class="clear"></div>		 
+    </div>
+
+    <div class="app-footer"><!-- include:app-footer --></div>
+</div>
+
+</body>
+</html>

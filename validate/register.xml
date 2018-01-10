@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<validation>
+
+	<field name="name" label="Nome" required="true" />
+	<field name="email" label="E-mail" required="true" type="email" />
+	<field name="birth_date" label="Data de nascimento" required="true" type="date" />
+	<field name="genre" label="Sexo" required="true" />
+	<field name="city_id" label="Cidade" required="true" type="integer" />
+	<field name="password" label="Senha" required="true" type="password" />
+	<field name="password" label="Senha" type="compare" field="password_retry" message="Confirmação de senha não confere" />
+
+</validation>
